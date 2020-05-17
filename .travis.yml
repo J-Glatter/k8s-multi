@@ -17,7 +17,7 @@ before_install:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin 
     - docker build -t jglatter/react-test -f ./client/Dockerfile.dev ./client
 script:
-    - docker run -e CI=true USERNAME/docker-react yarn test
+    - docker run -e CI=true jglatter/docker-react yarn test
 deploy:
     provider: script
     script: bash ./deploy.sh
